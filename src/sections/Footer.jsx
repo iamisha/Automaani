@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-2">
             <span className="text-2xl font-extrabold relative inline-block mb-4">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-300">
-                Automaani
+                A U T O M A A N I
               </span>
               <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-blue-300"></span>
             </span>

@@ -20,7 +20,7 @@ export default function Navbar({ onHome, onAbout, onServices, onContact, onBook 
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
         <div className="text-2xl font-extrabold tracking-tight flex items-center gap-2">
           <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-300">
-            Automaani
+            A U T O M A A N I
             <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-blue-300"></span>
           </span>
         </div>

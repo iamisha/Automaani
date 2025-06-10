@@ -1,28 +1,47 @@
-# Dependencies
-/node_modules
-/.pnp
-.pnp.js
+# dependencies
+node_modules/
 
-# Testing
-/coverage
+# editor and config directories
+.vscode/
+.github/
 
-# Production
-/build
-/dist
+# build and production
+build/
+dist/
+.next/
+.vercel/
+.storybook-static/
 
-# Misc
+# public assets
+public/
+
+# testing
+coverage/
+*.lcov
+
+# misc
 .DS_Store
+.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
+# logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# IDE
+# IDE/project files
 .idea/
-.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# OS generated files
+Thumbs.db
 *.swp
-*.swo 
+
+# tailwind
+tailwind.config.js
+postcss.config.js
