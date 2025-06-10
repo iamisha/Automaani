@@ -48,7 +48,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="font-medium text-gray-900">Email</div>
-                    <a href="mailto:isha@automaani.com" className="text-primary hover:underline">isha@automaani.com</a>
+                    <a href="mailto:isha@automaani.com" className="text-primary hover:underline">contact@automaani.com</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
