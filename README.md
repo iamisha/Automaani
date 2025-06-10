@@ -1,39 +1,70 @@
-# Automaani - Hotel & Resort Automation Website
+# Automaani - Hotel Automation Solutions
 
-This is a modern, single-page React website for Automaani, inspired by the design and theme of [Effortel](https://www.effortel.com/). It provides automation services for hotels and resorts, featuring:
+A modern web application showcasing hotel automation solutions and services.
 
-- Smooth-scrolling navigation: Home, About Us, Our Services, Contact Us, Book a Meeting
-- Hero section with value proposition
-- About Us section with team info and LinkedIn links
-- Our Services section with automation features and stats
-- Contact Us form
-- Book a Meeting form with Google Calendar integration
+## Features
 
-## Getting Started
-
-1. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-2. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
-3. **Build for production:**
-   ```bash
-   npm run build
-   ```
+- Responsive design
+- Modern UI with Tailwind CSS
+- Contact form
+- Service showcase
+- About us section
+- Interactive components
 
 ## Tech Stack
+
 - React
 - Vite
 - Tailwind CSS
+- Node.js
 
-## Customization
-- Update company/team info in `src/sections/AboutUs.jsx`
-- Update services/features in `src/sections/Services.jsx`
-- Contact and meeting forms are ready for backend/email integration
+## Getting Started
 
----
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/automaani.git
+cd automaani
+```
 
-For any issues, contact isha@automaani.com
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+4. Build for production:
+```bash
+npm run build
+```
+
+## Project Structure
+
+```
+automaani/
+├── src/
+│   ├── sections/     # Page sections
+│   ├── App.jsx       # Main App component
+│   └── main.jsx      # Entry point
+├── public/           # Static assets
+└── package.json      # Project dependencies
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Contact
+
+Isha - isha@automaani.com
