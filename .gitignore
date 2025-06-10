@@ -22,7 +22,9 @@ coverage/
 # misc
 .DS_Store
 .env
-.env.local
+.env.localgit rm -r --cached .github .vscode node_modules public
+git add .gitignore
+git commit -m "Stop tracking .github, .vscode, node_modules, and public folders"
 .env.development.local
 .env.test.local
 .env.production.local
