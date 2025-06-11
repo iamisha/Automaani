@@ -73,7 +73,6 @@ export default function Footer() {
                 </svg>
                 <div className="text-gray-400">
                   <div>+977 9807881445</div>
-                  <div>+977 9827454638</div>
                 </div>
               </li>
             </ul>

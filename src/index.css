@@ -73,6 +73,37 @@ body {
   animation: bounce-slow 2.5s infinite;
 }
 
+/* Enhanced animations for AboutUs section */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes scale-in {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-scale-in {
+  animation: scale-in 0.6s cubic-bezier(0.4,0,0.2,1) both;
+}
+
+/* Improved delay classes */
+.delay-75 { animation-delay: 75ms; }
+.delay-150 { animation-delay: 150ms; }
+.delay-225 { animation-delay: 225ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+
+/* Enhanced gradient text */
+.text-gradient {
+  @apply bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 bg-clip-text text-transparent;
+}
+
 /* Modern button styles */
 .btn-primary {
   @apply px-6 py-3 rounded-xl font-semibold transition-all duration-200;
@@ -98,4 +129,78 @@ body {
 .card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced animations for AboutUs section */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes scale-in {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-scale-in {
+  animation: scale-in 0.6s cubic-bezier(0.4,0,0.2,1) both;
+}
+
+/* Enhanced gradient text */
+.text-gradient {
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #06b6d4 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Glow effect for cards */
+.card-glow {
+  box-shadow: 
+    0 4px 20px rgba(59, 130, 246, 0.1),
+    0 0 0 1px rgba(59, 130, 246, 0.05);
+}
+
+.card-glow:hover {
+  box-shadow: 
+    0 8px 30px rgba(59, 130, 246, 0.15),
+    0 0 0 1px rgba(59, 130, 246, 0.1);
+}
+
+/* Scroll to top button animations */
+@keyframes bounce-up {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+.animate-bounce-up {
+  animation: bounce-up 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+  }
+  50% { 
+    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.5);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Enhanced scroll button styles */
+.scroll-to-top {
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.scroll-to-top:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #0ea5e9 100%);
 }

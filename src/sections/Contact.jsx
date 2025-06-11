@@ -1,17 +1,57 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { sendEmail, validateContactForm, initializeEmailJS } from '../services/emailService';
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [submitError, setSubmitError] = useState('');
+
+  useEffect(() => {
+    // Initialize EmailJS when component mounts
+    initializeEmailJS();
+  }, []);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+    // Clear error for this field when user starts typing
+    if (errors[e.target.name]) {
+      setErrors({ ...errors, [e.target.name]: '' });
+    }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    // Here you would send the form data to your backend or email service
+    setLoading(true);
+    setSubmitError('');
+    
+    // Validate form
+    const validation = validateContactForm(form);
+    if (!validation.isValid) {
+      setErrors(validation.errors);
+      setLoading(false);
+      return;
+    }
+
+    try {
+      // Send email via configured service
+      const result = await sendEmail(form, 'contact');
+      
+      if (result.success) {
+        setSubmitted(true);
+        // Reset form
+        setForm({ name: '', email: '', message: '' });
+        setErrors({});
+      } else {
+        setSubmitError(result.error || 'Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Contact form submission error:', error);
+      setSubmitError('Failed to send message. Please try again or contact us directly.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -60,7 +100,6 @@ export default function Contact() {
                   <div>
                     <div className="font-medium text-gray-900">Phone</div>
                     <div className="text-gray-600">+977 9807881445</div>
-                    <div className="text-gray-600">+977 9827454638</div>
                   </div>
                 </div>
               </div>
@@ -81,10 +120,17 @@ export default function Contact() {
               </div>
             ) : (
               <form className="space-y-6" onSubmit={handleSubmit}>
+                {submitError && (
+                  <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+                    <p className="text-red-600 text-sm">{submitError}</p>
+                  </div>
+                )}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
                   <input
-                    className="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+                    className={`w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors ${
+                      errors.name ? 'border-red-300 bg-red-50' : 'border-gray-200'
+                    }`}
                     type="text"
                     name="name"
                     placeholder="John Doe"
@@ -92,11 +138,14 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                   />
+                  {errors.name && <p className="text-red-600 text-sm mt-1">{errors.name}</p>}
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Your Email</label>
                   <input
-                    className="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+                    className={`w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors ${
+                      errors.email ? 'border-red-300 bg-red-50' : 'border-gray-200'
+                    }`}
                     type="email"
                     name="email"
                     placeholder="john@example.com"
@@ -104,11 +153,14 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                   />
+                  {errors.email && <p className="text-red-600 text-sm mt-1">{errors.email}</p>}
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Your Message</label>
                   <textarea
-                    className="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+                    className={`w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors ${
+                      errors.message ? 'border-red-300 bg-red-50' : 'border-gray-200'
+                    }`}
                     name="message"
                     placeholder="How can we help you?"
                     rows="4"
@@ -116,12 +168,26 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                   />
+                  {errors.message && <p className="text-red-600 text-sm mt-1">{errors.message}</p>}
                 </div>
                 <button
                   type="submit"
-                  className="btn-primary w-full"
+                  disabled={loading}
+                  className={`btn-primary w-full flex items-center justify-center gap-2 ${
+                    loading ? 'opacity-70 cursor-not-allowed' : ''
+                  }`}
                 >
-                  Send Message
+                  {loading ? (
+                    <>
+                      <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+                      </svg>
+                      Sending...
+                    </>
+                  ) : (
+                    'Send Message'
+                  )}
                 </button>
               </form>
             )}

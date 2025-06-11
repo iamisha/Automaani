@@ -6,6 +6,7 @@ import Services from './sections/Services';
 import Contact from './sections/Contact';
 import BookMeeting from './sections/BookMeeting';
 import Footer from './sections/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 export default function App() {
   const aboutRef = useRef(null);
@@ -32,6 +33,7 @@ export default function App() {
       <div ref={contactRef}><Contact /></div>
       {showBook && <BookMeeting onClose={() => setShowBook(false)} />}
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }
