@@ -42,7 +42,7 @@ export default function Hero({ onBook }) {
         </div>
         
         <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto animate-fade-in-up delay-100 font-medium leading-relaxed">
-          Transform your hotel operations with our intelligent automation solutions. Join the future of hospitality management.
+          Transform your hotel operations with our intelligent automation solutions. Based in Nepal, serving the future of hospitality management worldwide.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-up delay-200">

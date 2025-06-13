@@ -25,7 +25,7 @@ export default function AboutUs() {
             Welcome to <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Automaani</span>
           </h2>
           <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed animate-fade-in-up delay-100">
-            Automaani is dedicated to revolutionizing hotel and resort operations with AI-powered automation. Our mission is to empower hospitality businesses to deliver exceptional guest experiences while maximizing efficiency and productivity.
+            Based in Lalitpur, Nepal, Automaani is dedicated to revolutionizing hotel and resort operations with AI-powered automation. Our mission is to empower hospitality businesses across Nepal and beyond to deliver exceptional guest experiences while maximizing efficiency and productivity.
           </p>
         </div>
         <div className="mt-20">

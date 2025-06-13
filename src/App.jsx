@@ -4,6 +4,7 @@ import Hero from './sections/Hero';
 import AboutUs from './sections/AboutUs';
 import Services from './sections/Services';
 import Contact from './sections/Contact';
+import Location from './sections/Location';
 import BookMeeting from './sections/BookMeeting';
 import Footer from './sections/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -31,6 +32,7 @@ export default function App() {
       <div ref={aboutRef}><AboutUs /></div>
       <div ref={servicesRef}><Services /></div>
       <div ref={contactRef}><Contact /></div>
+      <Location />
       {showBook && <BookMeeting onClose={() => setShowBook(false)} />}
       <Footer />
       <ScrollToTop />
